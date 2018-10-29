@@ -50,6 +50,15 @@
             <artifactId>jersey-media-moxy</artifactId>
         </dependency>
         -->
+        
+        <!-- issue with installing
+		https://mvnrepository.com/artifact/ojdbc/ojdbc 
+		<dependency>
+		    <groupId>ojdbc</groupId>
+		    <artifactId>ojdbc</artifactId>
+		    <version>14</version>
+		</dependency>
+		-->	
     </dependencies>
     <properties>
         <jersey.version>2.16</jersey.version>
