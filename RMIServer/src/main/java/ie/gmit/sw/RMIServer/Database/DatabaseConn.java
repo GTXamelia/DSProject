@@ -12,8 +12,7 @@ public class DatabaseConn implements DatabaseConnInterface{
 
 	@Override
 	public void Connect() {
-		
-		
+		System.out.println("test");
 	}
 
 }
