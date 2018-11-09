@@ -39,6 +39,8 @@ public class CustomerResource {
     	Gson gson = new Gson();
     	
         String jsonResp = gson.toJson(rs);
+        
+        System.out.println(jsonResp);
     	
         return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
         

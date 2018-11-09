@@ -8,11 +8,7 @@ public interface DatabaseOption extends Remote{
 	
 	public void Connect() throws RemoteException, ClassNotFoundException, SQLException;
 	
-	public void Insert(String sql) throws RemoteException, SQLException;
-	
-	public void Update(String sql) throws RemoteException, SQLException;
-	
-	public void Delete(String sql) throws RemoteException, SQLException;
+	public void Execute(String sql) throws RemoteException, SQLException;
 	
 	public List<Object> Read(String sql) throws RemoteException, SQLException;
 	

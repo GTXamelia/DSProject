@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class RMISetup {
 
+	// Adapted from 'ds wk6 RMI FileServer'
 	public static void main(String[] args) throws Exception {
 		
 		DatabaseOption db = new DatabaseOptionImpl();
@@ -18,9 +19,7 @@ public class RMISetup {
 		
 		System.out.println("RMI server started...");
 		
-		Connection conn = DriverManager.getConnection ("jdbc:h2:~/DSProject", "","");
-		
-		DatabaseOptionImpl.createTables(conn);
+		DatabaseOptionImpl.createTables();
 		
 		// Test DB
 		db.Connect();
