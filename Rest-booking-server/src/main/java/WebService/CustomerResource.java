@@ -11,6 +11,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -78,5 +79,23 @@ public class CustomerResource {
     	
         return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
     } 
+    
+    @PUT
+    @Path("/result")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void putIntoDAO(String test) throws MalformedURLException, RemoteException, NotBoundException {
+    	
+    	String[] splited = test.split("\\s+");
+    	
+    	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
+    	
+    	db.Connect();
+    	
+    	System.out.println("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
+    	
+    	db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
+    	
+    	db.Close();
+    }
     
 }

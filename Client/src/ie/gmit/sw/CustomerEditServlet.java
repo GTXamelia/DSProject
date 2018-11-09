@@ -14,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.google.gson.Gson;
 import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
 import java.lang.reflect.Type;
@@ -59,8 +60,14 @@ public class CustomerEditServlet extends HttpServlet {
 		String num = request.getParameter("num");
 		
 		System.out.println(id + " " + fname + " " + lname + " " + num);
-
-        
+		
+		Client client = Client.create();
+		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/result");
+		String input = id + " "+ fname + " " + lname + " " + num;
+		ClientResponse response1 = webResource.type("application/json").put(ClientResponse.class, input);
+		
+		System.out.println(response1);
+		
 		response.sendRedirect("/Web-Client/Customers");
 	}
 	

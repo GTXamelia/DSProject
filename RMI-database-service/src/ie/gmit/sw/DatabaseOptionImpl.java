@@ -61,6 +61,8 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 		stmt.execute(sql);
 		
+		System.out.println("User Updating...");
+		
 	}
 	
 	public void Delete(String sql) throws SQLException {
@@ -113,6 +115,8 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
 		stmt.execute(sql);
+		
+		//sql = "UPDATE CUSTOMERS SET FIRST='" + Test + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'";
 		
 	}
 
