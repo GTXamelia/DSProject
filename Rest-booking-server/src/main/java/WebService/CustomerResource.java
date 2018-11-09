@@ -7,12 +7,12 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.ws.rs.PathParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import com.google.gson.Gson;
 
 import ie.gmit.sw.DatabaseOption;
@@ -39,11 +39,31 @@ public class CustomerResource {
     	Gson gson = new Gson();
     	
         String jsonResp = gson.toJson(rs);
-        
-        System.out.println(jsonResp);
     	
         return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
         
+    }
+    
+    @GET
+    @Path("/edit/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getUser(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException {
+    	
+    	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
+    	
+    	db.Connect();
+    	
+    	List<Object> rs = db.Read("SELECT * FROM CUSTOMERS WHERE id="+id);
+    	
+    	db.Close();
+    	
+    	Gson gson = new Gson();
+    	
+        String jsonResp = gson.toJson(rs);
+        
+        System.out.println(id);
+    	
+        return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
     }
     
 }

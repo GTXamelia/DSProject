@@ -18,11 +18,6 @@
 	        	<td>${customer.first}</td>
 	        	<td>${customer.second}</td>
 	        	<td>${customer.number}</td>
-	        	<td>
-		        	<a href="CustomersEdit?id=${customer.id}" target="_blank">
-	        		Edit: ${customer.id}
-	        		</a>
-	        	</td>
 	        </tr>
 	    </c:forEach>
 	</table>
