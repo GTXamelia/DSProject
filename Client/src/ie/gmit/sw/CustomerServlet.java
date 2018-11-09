@@ -30,7 +30,7 @@ public class CustomerServlet extends HttpServlet {
 		
 		Client client = Client.create();
 		
-		WebResource wr = client.resource("http://localhost:8080/WebService/webapi/customer/get");
+		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/customer/get");
 		
 		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
 		

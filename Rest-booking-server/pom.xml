@@ -3,11 +3,11 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>GMIT</groupId>
-    <artifactId>WebService</artifactId>
+    <groupId>ie.gmit.sw</groupId>
+    <artifactId>Rest-Server</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>WebService</name>
+    <name>Rest-Server</name>
 
     <build>
         <finalName>WebService</finalName>
