@@ -13,12 +13,13 @@
 	
 	<table>
 	    <c:forEach items="${customers}" var="customer">
-	        <tr>
-	        	<td>${customer.id}</td>
-	        	<td>${customer.first}</td>
-	        	<td>${customer.second}</td>
-	        	<td>${customer.number}</td>
-	        </tr>
+	        <form action="CustomersEdit" method="post">
+	        	ID Number: <input type="text" name="id" value="${customer.id}" readonly="readonly"><br>
+				First name: <input type="text" name="fname" value="${customer.first}"><br>
+				Last name: <input type="text" name="lname" value="${customer.second}"><br>
+				Phone Number: <input type="number" name="num" value="${customer.number}"><br>
+				<input type="submit" value="Submit">
+			</form>
 	    </c:forEach>
 	</table>
 	

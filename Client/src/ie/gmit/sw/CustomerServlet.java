@@ -28,6 +28,7 @@ public class CustomerServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		
 		Client client = Client.create();
 		
 		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/customer/get");

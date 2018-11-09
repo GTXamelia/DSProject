@@ -8,13 +8,16 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
 
+import ie.gmit.sw.Customer;
 import ie.gmit.sw.DatabaseOption;
 
 @Path("customer")
@@ -44,6 +47,18 @@ public class CustomerResource {
         
     }
     
+    @POST
+	@Path("/post")
+	@Consumes("application/json")
+	public Response createProductInJSON(@PathParam(value = "id") int id) {
+
+		String result = "Customer: " + id;
+		
+		System.out.println(result);
+		
+		return Response.status(201).entity(result).build();
+	}
+    
     @GET
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -60,10 +75,8 @@ public class CustomerResource {
     	Gson gson = new Gson();
     	
         String jsonResp = gson.toJson(rs);
-        
-        System.out.println(id);
     	
         return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
-    }
+    } 
     
 }

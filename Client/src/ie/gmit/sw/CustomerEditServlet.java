@@ -1,6 +1,7 @@
 package ie.gmit.sw;
 
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,9 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.WebResource;
 
 import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 import com.google.gson.reflect.TypeToken;
 
 @WebServlet("/CustomersEdit")
@@ -28,7 +32,7 @@ public class CustomerEditServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("id"));
+		//System.out.println(request.getParameter("id"));
 		
 		Client client = Client.create();
 		
@@ -44,7 +48,20 @@ public class CustomerEditServlet extends HttpServlet {
 
         request.setAttribute("customers", customers);
         
-        request.getRequestDispatcher("/WEB-INF/Customers.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/CustomerEdit.jsp").forward(request, response);
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = request.getParameter("id");
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
+		String num = request.getParameter("num");
+		
+		System.out.println(id + " " + fname + " " + lname + " " + num);
+
+        
+		response.sendRedirect("/Web-Client/Customers");
 	}
 	
 }
