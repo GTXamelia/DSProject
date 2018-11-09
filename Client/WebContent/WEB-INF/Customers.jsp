@@ -19,7 +19,7 @@
 	        	<td>${customer.second}</td>
 	        	<td>${customer.number}</td>
 	        	<td>
-		        	<a href="CustomersEdit?id=${customer.id}" target="_blank">
+		        	<a href="CustomersEdit?id=${customer.id}">
 	        		Edit: ${customer.id}
 	        		</a>
 	        	</td>
