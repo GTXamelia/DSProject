@@ -14,7 +14,15 @@
 	<table>
 	    <c:forEach items="${customers}" var="customer">
 	        <tr>
-	        	<td>${customer.name}</td>
+	        	<td>${customer.id}</td>
+	        	<td>${customer.first}</td>
+	        	<td>${customer.second}</td>
+	        	<td>${customer.number}</td>
+	        	<td>
+		        	<form action= "Edit" method="get">
+		        		<input type="submit" value="Edit"/>
+		        	</form>
+	        	</td>
 	        </tr>
 	    </c:forEach>
 	</table>

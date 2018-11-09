@@ -27,7 +27,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 	}
 	
-	public void Execute(String sql) throws SQLException {
+	public void Create(String sql) throws SQLException {
 			
 		Statement stmt = this.conn.createStatement();
 		
@@ -57,6 +57,22 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		return list;
 	}
 	
+	public void Update(String sql) throws SQLException {
+		
+		Statement stmt = this.conn.createStatement();
+		
+		stmt.execute(sql);
+		
+	}
+	
+	public void Delete(String sql) throws SQLException {
+		
+		Statement stmt = this.conn.createStatement();
+		
+		stmt.execute(sql);
+		
+	}
+	
 	public void Close() throws SQLException {
 		
 		this.conn.close();
@@ -76,33 +92,29 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 		Statement stmt= connTest.createStatement();
 		String sql;
-		try {
-			// Rest Table used for testing only
-			sql =  "DROP TABLE CUSTOMERS";
-			stmt.execute(sql);
+		
+		// Rest Table used for testing only
+		sql =  "DROP TABLE CUSTOMERS";
+		stmt.execute(sql);
+		
+		//sql =  "CREATE TABLE CUSTOMERS" + "(NAME VARCHAR(255) not NULL, " +  " PRIMARY KEY (NAME))";
 			
-			//sql =  "CREATE TABLE CUSTOMERS" + "(NAME VARCHAR(255) not NULL, " +  " PRIMARY KEY (NAME))";
-			
-			sql = "CREATE TABLE CUSTOMERS (" + 
-				  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
-				  "FIRST VARCHAR(255) NOT NULL," +
-				  "SECOND VARCHAR(255) NOT NULL," +
-				  "NUMBER VARCHAR(255) NOT NULL" +
-				  ");";
-			stmt.execute(sql);
-			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
-			stmt.execute(sql);
-			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
-			stmt.execute(sql);
-			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
-			stmt.execute(sql);
-
-		} catch (SQLException e) {
-			System.out.println(e);
-		}
+		sql = "CREATE TABLE CUSTOMERS (" + 
+			  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+			  "FIRST VARCHAR(255) NOT NULL," +
+			  "SECOND VARCHAR(255) NOT NULL," +
+			  "NUMBER VARCHAR(255) NOT NULL" +
+			  ");";
+		stmt.execute(sql);
+		
+		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
+		stmt.execute(sql);
+		
+		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
+		stmt.execute(sql);
+		
+		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
+		stmt.execute(sql);
 		
 	}
 
