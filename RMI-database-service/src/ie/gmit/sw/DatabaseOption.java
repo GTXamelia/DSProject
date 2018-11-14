@@ -12,6 +12,8 @@ public interface DatabaseOption extends Remote{
 	
 	public List<Object> Read(String sql) throws RemoteException, SQLException;
 	
+	public List<Object> ReadCar(String sql) throws RemoteException, SQLException;
+	
 	public void Update(String sql) throws RemoteException, SQLException;
 	
 	public void Delete(String sql) throws RemoteException, SQLException;
