@@ -7,8 +7,8 @@ public class Car implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private int id;
-	private int reg;
-	private String Year;
+	private String reg;
+	private int Year;
 	private String Make;
 	private Double cost;
 	
@@ -16,7 +16,7 @@ public class Car implements Serializable{
 		
 	}
 
-	public Car(int id, int reg, String year, String make, Double cost) {
+	public Car(int id, String reg, int year, String make, Double cost) {
 		this.id = id;
 		this.reg = reg;
 		this.Year = year;
@@ -28,11 +28,11 @@ public class Car implements Serializable{
 		return id;
 	}
 
-	public int getReg() {
+	public String getReg() {
 		return reg;
 	}
 
-	public String getYear() {
+	public int getYear() {
 		return Year;
 	}
 
@@ -48,11 +48,11 @@ public class Car implements Serializable{
 		this.id = id;
 	}
 
-	public void setReg(int reg) {
+	public void setReg(String reg) {
 		this.reg = reg;
 	}
 
-	public void setYear(String year) {
+	public void setYear(int year) {
 		Year = year;
 	}
 

@@ -10,6 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.h2.jdbc.JdbcSQLException;
+
 public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseOption {
 	private static final long serialVersionUID = 1L;
 
@@ -104,37 +106,24 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		Connection connTest = DriverManager.getConnection ("jdbc:h2:~/DSProject", "","");
 		
 		CreateCustomersTable(connTest);
+		CreateCarsTable(connTest);
 		
 	}
+	
 	
 	private static void CreateCustomersTable(Connection connTest) throws SQLException {
 		
 		Statement stmt= connTest.createStatement();
 		String sql;
 		
-		// Rest Table used for testing only
-		sql =  "DROP TABLE CUSTOMERS";
-		stmt.execute(sql);
-		
-		sql =  "DROP TABLE CARS";
-		stmt.execute(sql);
-		
 		//sql =  "CREATE TABLE CUSTOMERS" + "(NAME VARCHAR(255) not NULL, " +  " PRIMARY KEY (NAME))";
-			
+		
+		try{
 		sql = "CREATE TABLE CUSTOMERS (" + 
 			  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
 			  "FIRST VARCHAR(255) NOT NULL," +
 			  "SECOND VARCHAR(255) NOT NULL," +
 			  "NUMBER VARCHAR(255) NOT NULL" +
-			  ");";
-		stmt.execute(sql);
-		
-		sql = "CREATE TABLE CARS (" + 
-			  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
-			  "REG VARCHAR(255) NOT NULL," +
-			  "YEAR INT NOT NULL," +
-			  "MAKE VARCHAR(255) NOT NULL," +
-			  "COST DOUBLE NOT NULL" +
 			  ");";
 		stmt.execute(sql);
 		
@@ -145,11 +134,36 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		stmt.execute(sql);
 		
 		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
-		stmt.execute(sql);
-		
-		
-		sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-7643', '2007', 'Ford', '230.50')";
 		stmt.execute(sql);	
+		
+		}catch(JdbcSQLException e){
+			
+		}
+	}
+	
+	private static void CreateCarsTable(Connection connTest) throws SQLException {
+	
+		Statement stmt= connTest.createStatement();
+		String sql;
+		
+		try{
+			sql = "CREATE TABLE CARS (" + 
+					  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+					  "REG VARCHAR(255) NOT NULL," +
+					  "YEAR INT NOT NULL," +
+					  "MAKE VARCHAR(255) NOT NULL," +
+					  "COST DOUBLE NOT NULL" +
+					  ");";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-5633', '2007', 'Ford', '249.99')";
+			stmt.execute(sql);	
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-5633', '2007', 'Ford', '249.99')";
+			stmt.execute(sql);
+		}catch(JdbcSQLException e){
+			
+		}
 	}
 
 }
