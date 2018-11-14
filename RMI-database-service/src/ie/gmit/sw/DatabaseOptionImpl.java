@@ -67,7 +67,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 		while(rs.next()) {
 			
-			Car c = new Car(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getDouble(5));
+			Car c = new Car(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDouble(5));
 			
 			list.add(c);
 		}
@@ -107,7 +107,6 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 	}
 	
-	
 	private static void CreateCustomersTable(Connection connTest) throws SQLException {
 		
 		Statement stmt= connTest.createStatement();
@@ -115,6 +114,9 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 		// Rest Table used for testing only
 		sql =  "DROP TABLE CUSTOMERS";
+		stmt.execute(sql);
+		
+		sql =  "DROP TABLE CARS";
 		stmt.execute(sql);
 		
 		//sql =  "CREATE TABLE CUSTOMERS" + "(NAME VARCHAR(255) not NULL, " +  " PRIMARY KEY (NAME))";
@@ -127,6 +129,15 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 			  ");";
 		stmt.execute(sql);
 		
+		sql = "CREATE TABLE CARS (" + 
+			  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+			  "REG VARCHAR(255) NOT NULL," +
+			  "YEAR INT NOT NULL," +
+			  "MAKE VARCHAR(255) NOT NULL," +
+			  "COST DOUBLE NOT NULL" +
+			  ");";
+		stmt.execute(sql);
+		
 		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
 		stmt.execute(sql);
 		
@@ -134,6 +145,10 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		stmt.execute(sql);
 		
 		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
+		stmt.execute(sql);
+		
+		
+		sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-7643', '2007', 'Ford', '230.50')";
 		stmt.execute(sql);	
 	}
 

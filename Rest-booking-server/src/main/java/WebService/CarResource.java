@@ -21,7 +21,7 @@ import com.google.gson.Gson;
 
 import ie.gmit.sw.DatabaseOption;
 
-@Path("customer")
+@Path("car")
 public class CarResource {
 	
 	private String service = "/databaseOption";
@@ -36,7 +36,7 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	List<Object> rs = db.Read("SELECT * FROM CUSTOMERS");
+    	List<Object> rs = db.Read("SELECT * FROM CARS");
     	
     	db.Close();
     	
