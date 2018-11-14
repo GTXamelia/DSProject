@@ -19,7 +19,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
 
-import ie.gmit.sw.Customer;
 import ie.gmit.sw.DatabaseOption;
 
 @Path("customer")

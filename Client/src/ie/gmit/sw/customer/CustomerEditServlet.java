@@ -1,4 +1,4 @@
-package ie.gmit.sw;
+package ie.gmit.sw.customer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,25 +19,33 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-@WebServlet("/CustomersDelete")
-public class CustomerDeleteServlet extends HttpServlet {
+@WebServlet("/CustomersEdit")
+public class CustomerEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
-    public CustomerDeleteServlet() {
+    public CustomerEditServlet() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("id"));
+		//System.out.println(request.getParameter("id"));
 		
 		Client client = Client.create();
-		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/delete");
-		ClientResponse response1 = webResource.type("application/json").delete(ClientResponse.class, request.getParameter("id"));
 		
-		//System.out.println(response1); // Server response
+		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/customer/edit/" + request.getParameter("id"));
 		
-		response.sendRedirect("/Web-Client/Customers");
+		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
+		
+		Gson gson=new Gson();
+		
+		Type listType = new TypeToken<ArrayList<Customer>>(){}.getType();
+		
+		List<Customer> customers = gson.fromJson(r, listType);
+
+        request.setAttribute("customers", customers);
+        
+        request.getRequestDispatcher("/WEB-INF/CustomerEdit.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
