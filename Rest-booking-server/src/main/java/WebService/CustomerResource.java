@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -63,7 +64,7 @@ public class CustomerResource {
     @GET
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException {
+    public Response getCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -81,9 +82,9 @@ public class CustomerResource {
     } 
     
     @PUT
-    @Path("/result")
+    @Path("/update")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putIntoDAO(String test) throws MalformedURLException, RemoteException, NotBoundException {
+    public void putCustomer(String test) throws MalformedURLException, RemoteException, NotBoundException {
     	
     	String[] splited = test.split("\\s+");
     	
@@ -91,9 +92,23 @@ public class CustomerResource {
     	
     	db.Connect();
     	
-    	System.out.println("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
-    	
     	db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
+    	
+    	db.Close();
+    }
+    
+    @DELETE
+    @Path("/delete")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException {
+    	
+    	System.out.println(id);
+    	
+    	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
+    	
+    	db.Connect();
+    	
+    	db.Update("DELETE FROM CUSTOMERS WHERE id='" + id + "'");
     	
     	db.Close();
     }

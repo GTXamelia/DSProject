@@ -114,10 +114,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		stmt.execute(sql);
 		
 		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
-		stmt.execute(sql);
-		
-		//sql = "UPDATE CUSTOMERS SET FIRST='" + Test + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'";
-		
+		stmt.execute(sql);	
 	}
 
 }

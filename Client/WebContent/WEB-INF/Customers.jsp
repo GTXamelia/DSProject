@@ -20,7 +20,10 @@
 	        	<td>${customer.number}</td>
 	        	<td>
 		        	<a href="CustomersEdit?id=${customer.id}">
-	        		Edit: ${customer.id}
+	        		Edit
+	        		</a>
+	        		<a href="CustomersDelete?id=${customer.id}">
+	        		Delete
 	        		</a>
 	        	</td>
 	        </tr>
