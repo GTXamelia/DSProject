@@ -32,7 +32,7 @@ public class CarResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getJson() throws RemoteException, MalformedURLException, NotBoundException, SQLException, ClassNotFoundException {
     	
-    	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
+    	DatabaseOption db = (DatabaseOption)Naming.lookup("rmi://" + address + service);
     	
     	db.Connect();
     	
@@ -69,7 +69,7 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	List<Object> rs = db.Read("SELECT * FROM CUSTOMERS WHERE id="+id);
+    	List<Object> rs = db.Read("SELECT * FROM CARS WHERE id="+id);
     	
     	db.Close();
     	
@@ -91,7 +91,7 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
+    	db.Update("UPDATE CARS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
     	
     	db.Close();
     }

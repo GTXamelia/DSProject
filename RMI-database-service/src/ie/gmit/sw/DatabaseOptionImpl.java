@@ -71,6 +71,8 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 			
 			Car c = new Car(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDouble(5));
 			
+			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4) + " " + rs.getDouble(5));
+			
 			list.add(c);
 		}
 		
@@ -159,8 +161,6 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-5633', '2007', 'Ford', '249.99')";
 			stmt.execute(sql);	
 			
-			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-5633', '2007', 'Ford', '249.99')";
-			stmt.execute(sql);
 		}catch(JdbcSQLException e){
 			
 		}
