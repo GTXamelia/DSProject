@@ -30,7 +30,7 @@ public class CustomerResource {
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson() throws RemoteException, MalformedURLException, NotBoundException, SQLException {
+    public Response getJson() throws RemoteException, MalformedURLException, NotBoundException, SQLException, ClassNotFoundException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -63,7 +63,7 @@ public class CustomerResource {
     @GET
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException {
+    public Response getCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -83,7 +83,7 @@ public class CustomerResource {
     @PUT
     @Path("/update")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putCustomer(String test) throws MalformedURLException, RemoteException, NotBoundException {
+    public void putCustomer(String test) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	String[] splited = test.split("\\s+");
     	
@@ -99,7 +99,7 @@ public class CustomerResource {
     @DELETE
     @Path("/delete")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException {
+    public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	System.out.println(id);
     	

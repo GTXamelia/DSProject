@@ -1,21 +1,23 @@
 package ie.gmit.sw;
 
-import java.rmi.Remote;
-import java.rmi.RemoteException;
+import java.rmi.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface DatabaseOption extends Remote{
 	
-	public void Connect() throws RemoteException;
+	public void Connect() throws RemoteException, ClassNotFoundException, SQLException;
 	
-	public void Create(String sql) throws RemoteException;
+	public void Create(String sql) throws RemoteException, SQLException;
 	
-	public void Update(String sql) throws RemoteException;
+	public List<Object> Read(String sql) throws RemoteException, SQLException;
 	
-	public void Delete(String sql) throws RemoteException;
+	public List<Object> ReadCar(String sql) throws RemoteException, SQLException;
 	
-	public List<Object> Read(String sql) throws RemoteException;
+	public void Update(String sql) throws RemoteException, SQLException;
 	
-	public void Close() throws RemoteException;
+	public void Delete(String sql) throws RemoteException, SQLException;
+	
+	public void Close() throws RemoteException, SQLException;
 
 }
