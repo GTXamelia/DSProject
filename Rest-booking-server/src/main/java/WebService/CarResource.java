@@ -91,7 +91,7 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	db.Update("UPDATE CARS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
+    	db.Update("UPDATE CARS SET reg='" + splited[1] + "', YEAR='" + splited[2] + "', MAKE='" + splited[3] + "', COST='" + splited[4] + "' WHERE id='" + splited[0] + "'");
     	
     	db.Close();
     }
@@ -100,8 +100,6 @@ public class CarResource {
     @Path("/delete")
     @Consumes(MediaType.APPLICATION_JSON)
     public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
-    	
-    	System.out.println(id);
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	

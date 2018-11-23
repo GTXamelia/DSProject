@@ -118,28 +118,36 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		Statement stmt= connTest.createStatement();
 		String sql;
 		
-		//sql =  "CREATE TABLE CUSTOMERS" + "(NAME VARCHAR(255) not NULL, " +  " PRIMARY KEY (NAME))";
-		
 		try{
-		sql = "CREATE TABLE CUSTOMERS (" + 
-			  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
-			  "FIRST VARCHAR(255) NOT NULL," +
-			  "SECOND VARCHAR(255) NOT NULL," +
-			  "NUMBER VARCHAR(255) NOT NULL" +
-			  ");";
-		stmt.execute(sql);
-		
-		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
-		stmt.execute(sql);
-		
-		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
-		stmt.execute(sql);
-		
-		sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
-		stmt.execute(sql);	
+			sql= "DROP TABLE CUSTOMERS";
+			stmt.execute(sql);
+			
+			sql = "CREATE TABLE CUSTOMERS (" + 
+				  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+				  "FIRST VARCHAR(255) NOT NULL," +
+				  "SECOND VARCHAR(255) NOT NULL," +
+				  "NUMBER VARCHAR(255) NOT NULL" +
+				  ");";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
+			stmt.execute(sql);	
 		
 		}catch(JdbcSQLException e){
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
+			stmt.execute(sql);
 			
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
+			stmt.execute(sql);	
 		}
 	}
 	
@@ -149,6 +157,9 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		String sql;
 		
 		try{
+			sql= "DROP TABLE CARS";
+			stmt.execute(sql);
+			
 			sql = "CREATE TABLE CARS (" + 
 					  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
 					  "REG VARCHAR(255) NOT NULL," +
@@ -161,8 +172,37 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-5633', '2007', 'Ford', '249.99')";
 			stmt.execute(sql);	
 			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('14-D-4626', '2014', 'Volkswagen', '499.99')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('14-D-4627', '2014', 'Volkswagen', '499.99')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('17-L-2418', '2017', 'Toyota', '649.99')";
+			stmt.execute(sql);
+			
 		}catch(JdbcSQLException e){
 			
+			sql = "CREATE TABLE CARS (" + 
+					  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+					  "REG VARCHAR(255) NOT NULL," +
+					  "YEAR INT NOT NULL," +
+					  "MAKE VARCHAR(255) NOT NULL," +
+					  "COST DOUBLE NOT NULL" +
+					  ");";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('07-GA-5633', '2007', 'Ford', '249.99')";
+			stmt.execute(sql);	
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('14-D-4626', '2014', 'Volkswagen', '499.99')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('14-D-4627', '2014', 'Volkswagen', '499.99')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('17-L-2418', '2017', 'Toyota', '649.99')";
+			stmt.execute(sql);
 		}
 	}
 
