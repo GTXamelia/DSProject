@@ -51,20 +51,21 @@ public class CarEditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
-		String fname = request.getParameter("fname");
-		String lname = request.getParameter("lname");
-		String num = request.getParameter("num");
+		String reg = request.getParameter("reg");
+		String year = request.getParameter("year");
+		String make = request.getParameter("make");
+		String cost = request.getParameter("cost");
 		
-		System.out.println(id + " " + fname + " " + lname + " " + num);
+		System.out.println(id + " " + reg + " " + year + " " + make + " " + cost);
 		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/car/update");
-		String input = id + " "+ fname + " " + lname + " " + num;
+		String input = id + " " + reg + " " + year + " " + make + " " + cost;
 		ClientResponse response1 = webResource.type("application/json").put(ClientResponse.class, input);
 		
 		System.out.println(response1); // Server response
 		
-		response.sendRedirect("/Web-Client/Customers");
+		response.sendRedirect("/Web-Client/Cars");
 	}
 	
 }
