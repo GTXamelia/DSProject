@@ -69,7 +69,7 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	List<Object> rs = db.Read("SELECT * FROM CARS WHERE id="+id);
+    	List<Object> rs = db.ReadCar("SELECT * FROM CARS WHERE id="+id);
     	
     	db.Close();
     	

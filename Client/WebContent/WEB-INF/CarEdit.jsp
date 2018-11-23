@@ -12,7 +12,7 @@
 	<body>
 	
 	<table>
-	    <c:forEach items="${cars}" var="cars">
+	    <c:forEach items="${cars}" var="car">
 	        <form action="CustomersEdit" method="post">
 	        	ID Number: <input type="text" name="id" value="${car.id}" readonly="readonly"><br>
 				<input type="submit" value="Submit">

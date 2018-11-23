@@ -45,7 +45,7 @@ public class CarEditServlet extends HttpServlet {
 
         request.setAttribute("cars", cars);
         
-        request.getRequestDispatcher("/WEB-INF/CarsEdit.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/CarEdit.jsp").forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

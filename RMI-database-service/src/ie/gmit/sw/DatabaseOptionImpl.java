@@ -112,7 +112,6 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 	}
 	
-	
 	private static void CreateCustomersTable(Connection connTest) throws SQLException {
 		
 		Statement stmt= connTest.createStatement();
