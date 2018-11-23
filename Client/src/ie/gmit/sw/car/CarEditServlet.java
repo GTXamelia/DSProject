@@ -19,7 +19,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-@WebServlet("/CarsEdit")
+@WebServlet("/CarEdit")
 public class CarEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -56,7 +56,7 @@ public class CarEditServlet extends HttpServlet {
 		String make = request.getParameter("make");
 		String cost = request.getParameter("cost");
 		
-		System.out.println(id + " " + reg + " " + year + " " + make + " " + cost);
+		System.out.println(id + " " + reg + " " + year + " " + make + " " + cost); // Test
 		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/car/update");

@@ -13,12 +13,12 @@
 	
 	<table>
 	    <c:forEach items="${cars}" var="car">
-	        <form action="CustomersEdit" method="post">
+	        <form action="CarEdit" method="post">
 	        	ID Number: <input type="text" name="id" value="${car.id}" readonly="readonly"><br>
-	        	Registration: <input type="text" name="id" value="${car.reg}"><br>
-	        	Year: <input type="number" name="id" value="${car.year}"><br>
-	        	Make: <input type="text" name="id" value="${car.make}"><br>
-	        	Cost: <input type="number" name="id" value="${car.cost}" step="0.01"><br>
+	        	Registration: <input type="text" name="reg" value="${car.reg}"><br>
+	        	Year: <input type="number" name="year" value="${car.year}"><br>
+	        	Make: <input type="text" name="make" value="${car.make}"><br>
+	        	Cost: <input type="number" name="cost" value="${car.cost}" step="0.01"><br>
 				<input type="submit" value="Submit">
 			</form>
 	    </c:forEach>

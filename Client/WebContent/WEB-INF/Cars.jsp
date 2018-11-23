@@ -20,10 +20,10 @@
 	        	<td>${car.make}</td>
 	        	<td>${car.cost}</td>
 	        	<td>
-		        	<a href="CarsEdit?id=${car.id}">
+		        	<a href="CarEdit?id=${car.id}">
 	        		Edit
 	        		</a>
-	        		<a href="CarsDelete?id=${car.id}">
+	        		<a href="CarDelete?id=${car.id}">
 	        		Delete
 	        		</a>
 	        	</td>
