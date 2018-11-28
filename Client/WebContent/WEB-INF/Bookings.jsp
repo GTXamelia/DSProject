@@ -12,7 +12,7 @@
 	<body>
 	
 	<table>
-	    <c:forEach items="${bookings}" var="booking">
+	    <c:forEach items="${bookings}" var="booking" varStatus="status">
 	        <tr>
 	        	<td>${booking.id}</td>
 	        	<td>${booking.dateStart}</td>
