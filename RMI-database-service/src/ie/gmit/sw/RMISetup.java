@@ -2,9 +2,6 @@ package ie.gmit.sw;
 
 import java.rmi.Naming;
 import java.rmi.registry.LocateRegistry;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class RMISetup {
 

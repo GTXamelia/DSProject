@@ -79,6 +79,28 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		return list;
 	}
 	
+public List<Object> ReadBookings(String sql) throws SQLException {
+		
+		ResultSet rs = null;
+		
+    	ArrayList<Object> list = new ArrayList<>();
+			
+		Statement stmt = this.conn.createStatement();
+		
+		rs = stmt.executeQuery(sql);
+		
+		while(rs.next()) {
+			
+			Bookings b = new Bookings(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getInt(5));
+			
+			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getInt(4) + " " + rs.getInt(5));
+			
+			list.add(b);
+		}
+		
+		return list;
+	}
+	
 	public void Update(String sql) throws SQLException {
 		
 		Statement stmt = this.conn.createStatement();
