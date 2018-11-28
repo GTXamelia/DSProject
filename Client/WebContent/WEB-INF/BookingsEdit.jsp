@@ -6,20 +6,23 @@
 
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Customers</title>
+		<title>Booking Edit</title>
 	</head>
 
 	<body>
 	
 	<table>
 	    <c:forEach items="${bookings}" var="booking">
-	        <form action="CustomersEdit" method="post">
+	        <form action="BookingsEdit" method="post">
+	        	<input type=hidden id="thisField" name="id" value="${booking.id}">
+	        	<input type=hidden id="thisField" name="carID" value="${booking.carID}">
+	        	<input type=hidden id="thisField" name="customerID" value="${booking.customerID}">
+	        	Date: <input type="date" name="sdate" value="${booking.dateStart}"> - <input type="date" name="edate" value="${booking.dateEnd}"><br>
 				First name: <input type="text" name="fname" value="${booking.first}"><br>
 				Last name: <input type="text" name="lname" value="${booking.second}"><br>
-				Date: <input type="date" name="sdate" value="${booking.dateStart}"> - <input type="date" name="edate" value="${booking.dateEnd}"><br>
 				Phone Number: <input type="number" name="num" value="${booking.number}"><br>
 				Registration: <input type="text" name="reg" value="${booking.reg}"><br>
-				Year: <input type="number" name="reg" value="${booking.year}"><br>
+				Year: <input type="number" name="year" value="${booking.year}"><br>
 				Make: <input type="text" name="make" value="${booking.make}"><br>
 				Cost: <input type="text" name="cost" value="${booking.cost}"><br>
 				<input type="submit" value="Submit">

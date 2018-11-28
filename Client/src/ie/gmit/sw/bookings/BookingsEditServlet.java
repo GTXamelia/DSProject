@@ -51,16 +51,25 @@ public class BookingsEditServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String id = request.getParameter("id");
+		String carID = request.getParameter("carID");
+		String customerID = request.getParameter("customerID");
+		String sDate = request.getParameter("sdate");
+		String eDate = request.getParameter("edate");
+		String fName = request.getParameter("fname");
+		String sName = request.getParameter("lname");
+		String num = request.getParameter("num");
 		String reg = request.getParameter("reg");
 		String year = request.getParameter("year");
 		String make = request.getParameter("make");
 		String cost = request.getParameter("cost");
-		
-		//System.out.println(id + " " + reg + " " + year + " " + make + " " + cost); // Test
+				
+		//System.out.println("Booking: " + id + " " + sDate + " " + eDate); // Test
+		//System.out.println("Customer: " + customerID + " " + fName + " " + sName + " " + num); // Test
+		//System.out.println("Car: " + carID + " " + reg + " " + year + " " + make + " " + cost); // Test
 		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/update");
-		String input = id + " " + reg + " " + year + " " + make + " " + cost;
+		String input = id + " " + sDate + " " + eDate + " " + customerID + " " + fName + " " + sName + " " + num + " "+ carID + " " + reg + " " + year + " " + make + " " + cost;
 		ClientResponse response1 = webResource.type("application/json").put(ClientResponse.class, input);
 		
 		System.out.println(response1); // Server response
