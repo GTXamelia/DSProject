@@ -12,7 +12,7 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
-@WebServlet("/CarsDelete")
+@WebServlet("/CarDelete")
 public class CarDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
@@ -22,7 +22,7 @@ public class CarDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("id"));
+		//System.out.println(request.getParameter("id"));
 		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/car/delete");

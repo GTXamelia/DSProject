@@ -10,11 +10,26 @@
 
 <body>
 	<h1>Car Hire Booking Service</h1>
-	<form action= "Customers" method="get">
-		<input type="submit" value="Get all Customers"/>
-	</form>
-	<form action= "Cars" method="get">
-		<input type="submit" value="Get all Cars"/>
-	</form>
+	
+	
+	<table>
+		<tr>
+			<td>
+				<form action= "Customers" method="get">
+					<input type="submit" value="Get all Customers"/>
+				</form>
+			</td>
+			<td>
+				<form action= "Cars" method="get">
+					<input type="submit" value="Get all Cars"/>
+				</form>
+			</td>
+			<td>
+				<form action= "Bookings" method="get">
+					<input type="submit" value="Get all Bookings"/>
+				</form>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

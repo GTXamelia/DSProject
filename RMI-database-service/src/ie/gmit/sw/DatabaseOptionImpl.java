@@ -71,7 +71,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 			
 			Car c = new Car(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getDouble(5));
 			
-			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4) + " " + rs.getDouble(5));
+			//System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4) + " " + rs.getDouble(5));
 			
 			list.add(c);
 		}
@@ -109,6 +109,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 		CreateCustomersTable(connTest);
 		CreateCarsTable(connTest);
+		CreateBookingsTable(connTest);
 		
 	}
 	
@@ -204,5 +205,52 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 			stmt.execute(sql);
 		}
 	}
-
+	
+	private static void CreateBookingsTable(Connection connTest) throws SQLException {
+		
+		Statement stmt= connTest.createStatement();
+		String sql;
+		
+		try{
+			sql= "DROP TABLE BOOKINGS";
+			stmt.execute(sql);
+			
+			sql = "CREATE TABLE BOOKINGS (" + 
+					  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+					  "DATESTART VARCHAR(255) NOT NULL," +
+					  "DATEEND VARCHAR(255) NOT NULL," +
+					  "CARID INT NOT NULL," +
+					  "CUSTOMERID INT NOT NULL" +
+					  ");";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('28/11/18', '03/12/18', '1', '1')";
+			stmt.execute(sql);	
+			
+			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('25/11/18', '07/12/18', '2', '2')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('03/12/18', '05/12/18', '3', '4')";
+			stmt.execute(sql);
+			
+		}catch(JdbcSQLException e){
+			sql = "CREATE TABLE BOOKINGS (" + 
+					  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+					  "DATESTART VARCHAR(255) NOT NULL," +
+					  "DATEEND VARCHAR(255) NOT NULL," +
+					  "CARID INT NOT NULL," +
+					  "CUSTOMERID INT NOT NULL" +
+					  ");";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('28/11/18', '03/12/18', '1', '1')";
+			stmt.execute(sql);	
+			
+			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('25/11/18', '07/12/18', '2', '2')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('03/12/18', '05/12/18', '3', '4')";
+			stmt.execute(sql);
+		}
+	}
 }
