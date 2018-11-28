@@ -107,7 +107,7 @@ public class BookingsResource {
     	
     	db.Connect();
     	
-    	db.Update("DELETE FROM CUSTOMERS WHERE id='" + id + "'");
+    	db.Delete("DELETE FROM BOOKINGS WHERE id='" + id + "'");
     	
     	db.Close();
     }

@@ -104,7 +104,7 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	db.Update("DELETE FROM CARS WHERE id='" + id + "'");
+    	db.Delete("DELETE FROM CARS WHERE id='" + id + "'");
     	
     	db.Close();
     }

@@ -107,7 +107,7 @@ public class CustomerResource {
     	
     	db.Connect();
     	
-    	db.Update("DELETE FROM CUSTOMERS WHERE id='" + id + "'");
+    	db.Delete("DELETE FROM CUSTOMERS WHERE id='" + id + "'");
     	
     	db.Close();
     }
