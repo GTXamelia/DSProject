@@ -59,13 +59,13 @@ public class BookingsEditServlet extends HttpServlet {
 		System.out.println(id + " " + reg + " " + year + " " + make + " " + cost); // Test
 		
 		Client client = Client.create();
-		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/car/update");
+		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/update");
 		String input = id + " " + reg + " " + year + " " + make + " " + cost;
 		ClientResponse response1 = webResource.type("application/json").put(ClientResponse.class, input);
 		
 		System.out.println(response1); // Server response
 		
-		response.sendRedirect("/Web-Client/Cars");
+		response.sendRedirect("/Web-Client/Bookings");
 	}
 	
 }

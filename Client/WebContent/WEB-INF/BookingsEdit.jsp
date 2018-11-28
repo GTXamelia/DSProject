@@ -14,9 +14,10 @@
 	<table>
 	    <c:forEach items="${bookings}" var="booking">
 	        <form action="CustomersEdit" method="post">
-	        	ID Number: <input type="text" name="id" value="${booking.id}" readonly="readonly"><br>
 				First name: <input type="text" name="fname" value="${booking.first}"><br>
 				Last name: <input type="text" name="lname" value="${booking.second}"><br>
+				Start Date: <input type="date" name="sdate" value="${booking.dateStart}"><br>
+				End Date: <input type="text" name="edate" value="2013-01-08"><br>
 				Phone Number: <input type="number" name="num" value="${booking.number}"><br>
 				<input type="submit" value="Submit">
 			</form>
