@@ -32,27 +32,17 @@ public class BookingsServlet extends HttpServlet {
 		
 		Client client = Client.create();
 		
-		WebResource wrB = client.resource("http://localhost:8080/Rest-Server/webapi/booking/get");
+		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/booking/get");
 		
-		WebResource wrC = client.resource("http://localhost:8080/Rest-Server/webapi/customer/get");
-		
-		String rB = wrB.accept(MediaType.APPLICATION_JSON).get(String.class);
-		
-		String rC = wrC.accept(MediaType.APPLICATION_JSON).get(String.class);
+		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
 		
 		Gson gson=new Gson();
 		
-		Type listTypeB = new TypeToken<ArrayList<Bookings>>(){}.getType();
+		Type listType = new TypeToken<ArrayList<Bookings>>(){}.getType();
 		
-		Type listTypeC = new TypeToken<ArrayList<Bookings>>(){}.getType();
-		
-		List<Bookings> bookings = gson.fromJson(rB, listTypeB);
-		
-		List<Customer> customers = gson.fromJson(rC, listTypeC);
+		List<Bookings> bookings = gson.fromJson(r, listType);
 
         request.setAttribute("bookings", bookings);
-        
-        request.setAttribute("customers", customers);
         
         request.getRequestDispatcher("/WEB-INF/Bookings.jsp").forward(request, response);
         

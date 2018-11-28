@@ -69,7 +69,7 @@ public class BookingsResource {
     	
     	db.Connect();
     	
-    	List<Object> rs = db.Read("SELECT * FROM BOOKINGS WHERE id="+id);
+    	List<Object> rs = db.ReadBookings("SELECT * FROM BOOKINGS WHERE id="+id);
     	
     	db.Close();
     	

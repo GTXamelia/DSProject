@@ -136,6 +136,4 @@ public class Bookings implements Serializable{
 		this.cost = cost;
 	}
 	
-	
-	
 } 

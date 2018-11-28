@@ -125,7 +125,7 @@ public List<Object> ReadBookings(String sql) throws SQLException {
 	
 	public static void createTables() throws SQLException {
 		
-		Connection connTest = DriverManager.getConnection ("jdbc:h2:~/DSProject", "","");
+		Connection connTest = DriverManager.getConnection ("jdbc:h2:~/DSProject", "" ,"");
 		
 		CreateCustomersTable(connTest);
 		CreateCarsTable(connTest);
@@ -254,29 +254,35 @@ public List<Object> ReadBookings(String sql) throws SQLException {
 			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('1', '1', '28/11/18', '03/12/18', 'Cian', 'Gannon', '1234567', '07-GA-5633', '2007', 'Ford', '249.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '28/11/18', '03/12/18', ''Test', 'Gannon', '1234567', '14-D-4626', '2014', 'Volkswagen', '499.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '30/11/18', '07/12/18', 'John', 'Jameson', '6574321', '14-D-4626', '2014', 'Volkswagen', '499.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '28/11/18', '03/12/18', 'Test', 'Test', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '03/11/18', '06/12/18', 'Anna', 'Smith', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
 			stmt.execute(sql);
-			
 		}catch(JdbcSQLException e){
 			sql = "CREATE TABLE BOOKINGS (" + 
 					  "`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY," +
+					  "CUSTOMERID INT NOT NULL," +
+					  "CARID INT NOT NULL," +
 					  "DATESTART VARCHAR(255) NOT NULL," +
 					  "DATEEND VARCHAR(255) NOT NULL," +
-					  "CARID INT NOT NULL," +
-					  "CUSTOMERID INT NOT NULL" +
+					  "FIRST VARCHAR(255) NOT NULL," +
+					  "SECOND VARCHAR(255) NOT NULL," +
+					  "NUMBER VARCHAR(255) NOT NULL," +
+					  "REG VARCHAR(255) NOT NULL," +
+					  "YEAR INT NOT NULL," +
+					  "MAKE VARCHAR(255) NOT NULL," +
+					  "COST DOUBLE NOT NULL" +
 					  ");";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('28/11/18', '03/12/18', '1', '1')";
-			stmt.execute(sql);	
-			
-			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('25/11/18', '07/12/18', '2', '2')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('1', '1', '28/11/18', '03/12/18', 'Cian', 'Gannon', '1234567', '07-GA-5633', '2007', 'Ford', '249.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (DATESTART, DATEEND, CARID, CUSTOMERID) VALUES ('03/12/18', '05/12/18', '3', '4')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '30/11/18', '07/12/18', 'John', 'Jameson', '6574321', '14-D-4626', '2014', 'Volkswagen', '499.99')";
+			stmt.execute(sql);
+			
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '03/11/18', '06/12/18', 'Anna', 'Smith', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
 			stmt.execute(sql);
 		}
 	}

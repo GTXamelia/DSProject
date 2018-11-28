@@ -15,10 +15,13 @@
 	    <c:forEach items="${bookings}" var="booking" varStatus="status">
 	        <tr>
 	        	<td>${booking.id}</td>
-	        	<td>${booking.dateStart}</td>
-	        	<td>${booking.dateEnd}</td>
-	        	<td>${booking.carID}</td>
-	        	<td>${booking.customerID}</td>
+	        	<td>${booking.dateStart} - ${booking.dateEnd}</td>
+	        	<td>${booking.first} ${booking.second}</td>
+	        	<td>${booking.number}</td>
+	        	<td>${booking.reg}</td>
+	        	<td>${booking.year}</td>
+	        	<td>${booking.make}</td>
+	        	<td>${booking.cost}</td>
 	        	<td>
 		        	<a href="BookingsEdit?id=${booking.id}">
 	        		Edit
