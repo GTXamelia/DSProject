@@ -56,7 +56,7 @@ public class BookingsEditServlet extends HttpServlet {
 		String make = request.getParameter("make");
 		String cost = request.getParameter("cost");
 		
-		System.out.println(id + " " + reg + " " + year + " " + make + " " + cost); // Test
+		//System.out.println(id + " " + reg + " " + year + " " + make + " " + cost); // Test
 		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/update");

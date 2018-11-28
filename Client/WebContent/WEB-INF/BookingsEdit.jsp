@@ -16,9 +16,12 @@
 	        <form action="CustomersEdit" method="post">
 				First name: <input type="text" name="fname" value="${booking.first}"><br>
 				Last name: <input type="text" name="lname" value="${booking.second}"><br>
-				Start Date: <input type="date" name="sdate" value="${booking.dateStart}"><br>
-				End Date: <input type="text" name="edate" value="2013-01-08"><br>
+				Date: <input type="date" name="sdate" value="${booking.dateStart}"> - <input type="date" name="edate" value="${booking.dateEnd}"><br>
 				Phone Number: <input type="number" name="num" value="${booking.number}"><br>
+				Registration: <input type="text" name="reg" value="${booking.reg}"><br>
+				Year: <input type="number" name="reg" value="${booking.year}"><br>
+				Make: <input type="text" name="make" value="${booking.make}"><br>
+				Cost: <input type="text" name="cost" value="${booking.cost}"><br>
 				<input type="submit" value="Submit">
 			</form>
 	    </c:forEach>
