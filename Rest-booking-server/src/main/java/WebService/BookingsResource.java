@@ -95,7 +95,7 @@ public class BookingsResource {
     	
     	db.Update("UPDATE BOOKINGS SET CUSTOMERID='" + splited[3] + "', CARID='" + splited[7] + "', DATESTART='" + splited[1] + "', DATEEND='" + splited[2] + "', FIRST='" + splited[4] + "', SECOND='" + splited[5] + "', NUMBER='" + splited[6] + "', REG='" + splited[8] + "', YEAR='" + splited[9] + "', MAKE='" + splited[10] + "', COST='" + splited[11] + "' WHERE id='" + splited[0] + "'");
     	
-    	//db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
+    	db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[4] + "', SECOND='" + splited[5] + "', NUMBER='" + splited[6] + "' WHERE id='" + splited[3] + "'");
     	
     	db.Close();
     }
