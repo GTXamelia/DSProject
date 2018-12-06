@@ -102,8 +102,6 @@ public class CustomerResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
-    	System.out.println(id);
-    	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
     	db.Connect();

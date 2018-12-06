@@ -45,7 +45,6 @@ public class BookingsResource {
         String jsonResp = gson.toJson(rs);
     	
         return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
-        
     }
     
     @POST
@@ -85,8 +84,6 @@ public class BookingsResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void putCustomer(String test) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
-    	System.out.println(test);
-    	
     	String[] splited = test.split("\\s+");
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
@@ -106,8 +103,6 @@ public class BookingsResource {
     @Path("/delete")
     @Consumes(MediaType.APPLICATION_JSON)
     public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
-    	
-    	System.out.println(id);
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
