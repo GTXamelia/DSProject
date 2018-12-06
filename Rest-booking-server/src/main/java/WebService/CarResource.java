@@ -90,7 +90,9 @@ public class CarResource {
     	
     	db.Connect();
     	
-    	db.Update("UPDATE CARS SET reg='" + splited[1] + "', YEAR='" + splited[2] + "', MAKE='" + splited[3] + "', COST='" + splited[4] + "' WHERE id='" + splited[0] + "'");
+    	db.Update("UPDATE CARS SET REG='" + splited[1] + "', YEAR='" + splited[2] + "', MAKE='" + splited[3] + "', COST='" + splited[4] + "' WHERE id='" + splited[0] + "'");
+    	
+    	db.Update("UPDATE BOOKINGS SET REG='" + splited[1] + "', YEAR='" + splited[2] + "', MAKE='" + splited[3] + "', COST='" + splited[4] + "' WHERE CARID='" + splited[0] + "'");
     	
     	db.Close();
     }
@@ -105,6 +107,10 @@ public class CarResource {
     	db.Connect();
     	
     	db.Delete("DELETE FROM CARS WHERE id='" + id + "'");
+    	
+    	db.Delete("DELETE FROM CUSTOMERS WHERE CUSTOMERID='" + id + "'");
+    	
+    	db.Delete("DELETE FROM BOOKINGS WHERE CARID='" + id + "'");
     	
     	db.Close();
     }

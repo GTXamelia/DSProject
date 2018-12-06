@@ -45,7 +45,6 @@ public class CustomerResource {
         String jsonResp = gson.toJson(rs);
     	
         return Response.ok(jsonResp, MediaType.APPLICATION_JSON).build();
-        
     }
     
     @POST
