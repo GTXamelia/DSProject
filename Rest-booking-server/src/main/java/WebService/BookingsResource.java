@@ -97,6 +97,8 @@ public class BookingsResource {
     	
     	db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[4] + "', SECOND='" + splited[5] + "', NUMBER='" + splited[6] + "' WHERE id='" + splited[3] + "'");
     	
+    	db.Update("UPDATE CARS SET reg='" + splited[8] + "', YEAR='" + splited[9] + "', MAKE='" + splited[10] + "', COST='" + splited[11] + "' WHERE id='" + splited[7] + "'");
+    	
     	db.Close();
     }
     
