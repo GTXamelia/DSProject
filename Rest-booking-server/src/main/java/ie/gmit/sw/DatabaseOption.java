@@ -10,7 +10,7 @@ public interface DatabaseOption extends Remote{
 	
 	public void Create(String sql) throws RemoteException, SQLException;
 	
-	public List<Object> Read(String sql) throws RemoteException, SQLException;
+	public List<Object> ReadCustomers(String sql) throws RemoteException, SQLException;
 	
 	public List<Object> ReadCar(String sql) throws RemoteException, SQLException;
 	

@@ -36,7 +36,7 @@ public class CustomerResource {
     	
     	db.Connect();
     	
-    	List<Object> rs = db.Read("SELECT * FROM CUSTOMERS");
+    	List<Object> rs = db.ReadCustomers("SELECT * FROM CUSTOMERS");
     	
     	db.Close();
     	
@@ -68,7 +68,7 @@ public class CustomerResource {
     	
     	db.Connect();
     	
-    	List<Object> rs = db.Read("SELECT * FROM CUSTOMERS WHERE id="+id);
+    	List<Object> rs = db.ReadCustomers("SELECT * FROM CUSTOMERS WHERE id="+id);
     	
     	db.Close();
     	

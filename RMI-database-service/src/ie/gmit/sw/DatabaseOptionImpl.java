@@ -37,7 +37,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		
 	}
 	
-	public List<Object> Read(String sql) throws SQLException {
+	public List<Object> ReadCustomers(String sql) throws SQLException {
 		
 		ResultSet rs = null;
 		

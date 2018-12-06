@@ -29,9 +29,13 @@ public class BookingsDeleteServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String del = request.getParameter("id") + " " + request.getParameter("cusid");
+		
+		System.out.println(del);
+		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/delete");
-		webResource.type("application/json").delete(ClientResponse.class, request.getParameter("id"));
+		webResource.type("application/json").delete(ClientResponse.class, del);
 		
 		response.sendRedirect("/Web-Client/Bookings");
 	}	

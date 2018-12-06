@@ -104,11 +104,15 @@ public class BookingsResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
+    	String[] splited = id.split("\\s+");
+    	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
     	db.Connect();
     	
-    	db.Delete("DELETE FROM BOOKINGS WHERE id='" + id + "'");
+    	db.Delete("DELETE FROM BOOKINGS WHERE id='" + splited[0] + "'");
+    	
+    	db.Delete("DELETE FROM CUSTOMERS WHERE id='" + splited[1] + "'");
     	
     	db.Close();
     }

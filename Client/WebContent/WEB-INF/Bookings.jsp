@@ -26,7 +26,7 @@
 		        	<a href="BookingsEdit?id=${booking.id}">
 	        		Edit
 	        		</a>
-	        		<a href="BookingsDelete?id=${booking.id}">
+	        		<a href="BookingsDelete?id=${booking.id}&cusid=${booking.customerID}">
 	        		Delete
 	        		</a>
 	        	</td>
