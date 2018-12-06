@@ -153,20 +153,20 @@ public List<Object> ReadBookings(String sql) throws SQLException {
 			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('John', 'Jameson', '6574321')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Anna', 'Smith', '9999999')";
 			stmt.execute(sql);	
 		
 		}catch(JdbcSQLException e){
 			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Cian', 'Gannon', '1234567')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Gannon', '1234567')";
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('John', 'Jameson', '6574321')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Test', 'Test', '9999999')";
+			sql =  "INSERT INTO CUSTOMERS (FIRST, SECOND, NUMBER) VALUES ('Anna', 'Smith', '9999999')";
 			stmt.execute(sql);	
 		}
 	}
@@ -251,13 +251,13 @@ public List<Object> ReadBookings(String sql) throws SQLException {
 					  ");";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('1', '1', '2018-11-28', '18-12-03', 'Cian', 'Gannon', '1234567', '07-GA-5633', '2007', 'Ford', '249.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('1', '1', '2018-11-28', '2018-12-03', 'Cian', 'Gannon', '1234567', '07-GA-5633', '2007', 'Ford', '249.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '2018-11-30', '18-12-07', 'John', 'Jameson', '6574321', '14-D-4626', '2014', 'Volkswagen', '499.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '2018-11-30', '2018-12-07', 'John', 'Jameson', '6574321', '14-D-4626', '2014', 'Volkswagen', '499.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '2018-11-03', '18-12-06', 'Anna', 'Smith', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '2018-11-03', '2018-12-06', 'Anna', 'Smith', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
 			stmt.execute(sql);
 		}catch(JdbcSQLException e){
 			sql = "CREATE TABLE BOOKINGS (" + 
@@ -276,13 +276,13 @@ public List<Object> ReadBookings(String sql) throws SQLException {
 					  ");";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('1', '1', '2018-11-28', '18-12-03', 'Cian', 'Gannon', '1234567', '07-GA-5633', '2007', 'Ford', '249.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('1', '1', '2018-11-28', '2018-12-03', 'Cian', 'Gannon', '1234567', '07-GA-5633', '2007', 'Ford', '249.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '2018-11-30', '18-12-07', 'John', 'Jameson', '6574321', '14-D-4626', '2014', 'Volkswagen', '499.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('2', '2', '2018-11-30', '2018-12-07', 'John', 'Jameson', '6574321', '14-D-4626', '2014', 'Volkswagen', '499.99')";
 			stmt.execute(sql);
 			
-			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '2018-11-03', '18-12-06', 'Anna', 'Smith', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
+			sql =  "INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('3', '4', '2018-11-03', '2018-12-06', 'Anna', 'Smith', '9999999', '17-L-2418', '2017', 'Toyota', '649.99')";
 			stmt.execute(sql);
 		}
 	}
