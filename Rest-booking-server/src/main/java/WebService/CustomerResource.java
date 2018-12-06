@@ -93,6 +93,8 @@ public class CustomerResource {
     	
     	db.Update("UPDATE CUSTOMERS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE id='" + splited[0] + "'");
     	
+    	db.Update("UPDATE BOOKINGS SET FIRST='" + splited[1] + "', SECOND='" + splited[2] + "', NUMBER='" + splited[3] + "' WHERE CUSTOMERID='" + splited[0] + "'");
+    	
     	db.Close();
     }
     
@@ -108,6 +110,8 @@ public class CustomerResource {
     	db.Connect();
     	
     	db.Delete("DELETE FROM CUSTOMERS WHERE id='" + id + "'");
+    	
+    	db.Delete("DELETE FROM BOOKINGS WHERE CUSTOMERID='" + id + "'");
     	
     	db.Close();
     }

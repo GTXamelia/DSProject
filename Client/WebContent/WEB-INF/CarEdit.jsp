@@ -14,7 +14,7 @@
 	<table>
 	    <c:forEach items="${cars}" var="car">
 	        <form action="CarEdit" method="post">
-	        	ID Number: <input type="text" name="id" value="${car.id}" readonly="readonly"><br>
+	        	<input type=hidden id="thisField" name="id" value="${car.id}">
 	        	Registration: <input type="text" name="reg" value="${car.reg}"><br>
 	        	Year: <input type="number" name="year" value="${car.year}"><br>
 	        	Make: <input type="text" name="make" value="${car.make}"><br>

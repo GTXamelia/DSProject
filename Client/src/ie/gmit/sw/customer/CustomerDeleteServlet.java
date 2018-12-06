@@ -35,7 +35,7 @@ public class CustomerDeleteServlet extends HttpServlet {
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/delete");
 		ClientResponse response1 = webResource.type("application/json").delete(ClientResponse.class, request.getParameter("id"));
 		
-		//System.out.println(response1); // Server response
+		System.out.println(response1); // Server response
 		
 		response.sendRedirect("/Web-Client/Customers");
 	}	

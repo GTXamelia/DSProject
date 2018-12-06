@@ -14,7 +14,7 @@
 	<table>
 	    <c:forEach items="${customers}" var="customer">
 	        <form action="CustomersEdit" method="post">
-	        	ID Number: <input type="text" name="id" value="${customer.id}" readonly="readonly"><br>
+	        	<input type=hidden id="thisField" name="id" value="${customer.id}">
 				First name: <input type="text" name="fname" value="${customer.first}"><br>
 				Last name: <input type="text" name="lname" value="${customer.second}"><br>
 				Phone Number: <input type="number" name="num" value="${customer.number}"><br>
