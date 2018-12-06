@@ -108,8 +108,6 @@ public class CarResource {
     	
     	db.Delete("DELETE FROM CARS WHERE id='" + id + "'");
     	
-    	db.Delete("DELETE FROM CUSTOMERS WHERE CUSTOMERID='" + id + "'");
-    	
     	db.Delete("DELETE FROM BOOKINGS WHERE CARID='" + id + "'");
     	
     	db.Close();
