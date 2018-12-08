@@ -30,6 +30,20 @@
 				</form>
 			</td>
 		</tr>
+		<tr>
+			<td>
+				<form action= "CarAdd" method="get">
+					<input type="submit" value="Add a Car"/>
+				</form>
+			</td>
+			<td>
+			</td>
+			<td>
+				<form action= "BookingsAdd" method="get">
+					<input type="submit" value="Add a Booking"/>
+				</form>
+			</td>
+		</tr>
 	</table>
 </body>
 </html>
