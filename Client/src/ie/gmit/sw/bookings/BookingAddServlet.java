@@ -53,12 +53,10 @@ public class BookingAddServlet extends HttpServlet {
 		String eDate = request.getParameter("edate");
 		String custID = request.getParameter("custID");
 		
-		System.out.println(carID + " " + sDate + " " + eDate + " " + custID);
-		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/post");
 		String input = carID + " " + sDate + " " + eDate + " " + custID;
-		//webResource.type("application/json").post(ClientResponse.class, input);
+		webResource.type("application/json").post(ClientResponse.class, input);
 		
 		response.sendRedirect("/Web-Client/Bookings");
 	}

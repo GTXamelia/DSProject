@@ -51,8 +51,16 @@ public class BookingsResource {
 	@Path("/post")
 	@Consumes("application/json")
     public void postBooking(String input) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
-
     	
+    	String[] splited = input.split("\\s+");
+    	
+    	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
+    	
+    	db.Connect();
+    	
+    	db.Create("INSERT INTO BOOKINGS (CUSTOMERID, CARID, DATESTART, DATEEND, FIRST, SECOND, NUMBER, REG, YEAR, MAKE, COST ) VALUES ('" + splited[0] + "', '" + splited[7] + "', '" + splited[5] + "', '" + splited[6] + "', '" + splited[8] + "', '" + splited[9] + "', '" + splited[10] + "', '" + splited[2] + "', '" + splited[3] + "', '" + splited[1] + "', '" + splited[4] + "')");
+    	
+    	db.Close();
 	}
     
     @GET

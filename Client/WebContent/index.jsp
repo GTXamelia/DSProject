@@ -32,6 +32,9 @@
 		</tr>
 		<tr>
 			<td>
+				<form action= "CustomerAdd" method="get">
+					<input type="submit" value="Add a Customer"/>
+				</form>
 			</td>
 			<td>
 				<form action= "CarAdd" method="get">

@@ -51,7 +51,6 @@ public class CarResource {
 	@Path("/post")
 	@Consumes("application/json")
     public void postCustomer(String input) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
-    	
     	String[] splited = input.split("\\s+");
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);

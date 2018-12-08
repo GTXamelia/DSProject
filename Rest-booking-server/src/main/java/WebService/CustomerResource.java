@@ -30,7 +30,7 @@ public class CustomerResource {
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson() throws RemoteException, MalformedURLException, NotBoundException, SQLException, ClassNotFoundException {
+    public Response getCustomer() throws RemoteException, MalformedURLException, NotBoundException, SQLException, ClassNotFoundException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -50,19 +50,19 @@ public class CustomerResource {
     @POST
 	@Path("/post")
 	@Consumes("application/json")
-	public Response createProductInJSON(@PathParam(value = "id") int id) {
+    public Response postCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
 
 		String result = "Customer: " + id;
 		
 		System.out.println(result);
 		
-		return Response.status(201).entity(result).build();
+		return Response.status(201).build();
 	}
     
     @GET
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
+    public Response getCustomerbyID(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -100,7 +100,7 @@ public class CustomerResource {
     @DELETE
     @Path("/delete")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
+    public void delCustomer(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
