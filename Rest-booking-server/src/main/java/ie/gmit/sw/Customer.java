@@ -2,19 +2,23 @@ package ie.gmit.sw;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable{
+public class Customer implements Serializable {
 
+	// Serializable Id
 	private static final long serialVersionUID = 1L;
-	
+
+	// Private vars
 	private int id;
 	private String first;
 	private String second;
 	private int number;
-	
+
+	// Null Constructor
 	public Customer() {
-		
+
 	}
 
+	// Constructor
 	public Customer(int id, String first, String second, int number) {
 		this.id = id;
 		this.first = first;
@@ -22,6 +26,7 @@ public class Customer implements Serializable{
 		this.number = number;
 	}
 
+	// Getters and setters
 	public int getId() {
 		return id;
 	}
@@ -54,4 +59,4 @@ public class Customer implements Serializable{
 		this.number = number;
 	}
 
-} 
+}

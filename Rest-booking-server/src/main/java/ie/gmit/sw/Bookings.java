@@ -2,10 +2,12 @@ package ie.gmit.sw;
 
 import java.io.Serializable;
 
-public class Bookings implements Serializable{
+public class Bookings implements Serializable {
 
+	// Serializable Id
 	private static final long serialVersionUID = 1L;
-	
+
+	// Private vars
 	private int id;
 	private int carID;
 	private int customerID;
@@ -18,11 +20,13 @@ public class Bookings implements Serializable{
 	private int year;
 	private String make;
 	private Double cost;
-	
+
+	// Null Constructor
 	public Bookings() {
-		
+
 	}
 
+	// Constructor
 	public Bookings(int id, int carID, int customerID, String dateStart, String dateEnd, String first, String second,
 			int number, String reg, int year, String make, Double cost) {
 		super();
@@ -40,6 +44,7 @@ public class Bookings implements Serializable{
 		this.cost = cost;
 	}
 
+	// Getters and setters
 	public int getId() {
 		return id;
 	}
@@ -135,7 +140,5 @@ public class Bookings implements Serializable{
 	public void setCost(Double cost) {
 		this.cost = cost;
 	}
-	
-	
-	
-} 
+
+}
