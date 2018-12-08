@@ -50,13 +50,19 @@ public class CarResource {
     @POST
 	@Path("/post")
 	@Consumes("application/json")
-	public Response createProductInJSON(@PathParam(value = "id") int id) {
-
-		String result = "Customer: " + id;
-		
-		System.out.println(result);
-		
-		return Response.status(201).entity(result).build();
+    public void postCustomer(String input) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
+    	
+    	String[] splited = input.split("\\s+");
+    	
+    	System.out.println(splited[0] + " " + splited[1]);
+    	
+    	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
+    	
+    	db.Connect();
+    	
+    	db.Update("INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('" + splited[0] + "', '" + splited[1] + "', '" + splited[2] + "', '" + splited[3] + "')");
+    	
+    	db.Close();
 	}
     
     @GET
