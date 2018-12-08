@@ -11,7 +11,11 @@
 
 	<body>
         <form action="BookingsEdit" method="post">
-        	<input type=hidden id="thisField" name="carID">
+        	Car: <select id="selectedRecord" name="selectedRecord">
+	            <c:forEach items="${bookings}" var="booking" varStatus="status">
+	            	<option value="${booking.carID}">${booking.make} $${booking.cost}</option>
+	            </c:forEach>
+        	</select><br>
         	<input type=hidden id="thisField" name="customerID">
         	Date: <input type="date" name="sdate"> - <input type="date" name="edate"><br>
 			First name: <input type="text" name="fname"><br>

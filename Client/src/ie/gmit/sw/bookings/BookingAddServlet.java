@@ -28,6 +28,21 @@ public class BookingAddServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Client client = Client.create();
+		
+		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/booking/get");
+		
+		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
+		
+		Gson gson=new Gson();
+		
+		Type listType = new TypeToken<ArrayList<Bookings>>(){}.getType();
+		
+		List<Bookings> bookings = gson.fromJson(r, listType);
+
+        request.setAttribute("bookings", bookings);
+		
         request.getRequestDispatcher("/WEB-INF/BookingsAdd.jsp").forward(request, response);
 	}
 	
