@@ -30,7 +30,7 @@ public class BookingsResource {
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson() throws RemoteException, MalformedURLException, NotBoundException, SQLException, ClassNotFoundException {
+    public Response getBookings() throws RemoteException, MalformedURLException, NotBoundException, SQLException, ClassNotFoundException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -50,19 +50,15 @@ public class BookingsResource {
     @POST
 	@Path("/post")
 	@Consumes("application/json")
-	public Response createProductInJSON(@PathParam(value = "id") int id) {
+    public void postBooking(String input) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
 
-		String result = "Customer: " + id;
-		
-		System.out.println(result);
-		
-		return Response.status(201).entity(result).build();
+    	
 	}
     
     @GET
     @Path("/edit/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
+    public Response getBookingbyID(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -82,9 +78,9 @@ public class BookingsResource {
     @PUT
     @Path("/update")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putCustomer(String test) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
+    public void putBooking(String input) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
-    	String[] splited = test.split("\\s+");
+    	String[] splited = input.split("\\s+");
     	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
@@ -102,7 +98,7 @@ public class BookingsResource {
     @DELETE
     @Path("/delete")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void putIntoDAO(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
+    public void delBooking(String id) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
     	
     	String[] splited = id.split("\\s+");
     	
