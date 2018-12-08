@@ -49,21 +49,16 @@ public class BookingAddServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String carID = request.getParameter("carID");
-		String customerID = request.getParameter("customerID");
 		String sDate = request.getParameter("sdate");
 		String eDate = request.getParameter("edate");
-		String fName = request.getParameter("fname");
-		String sName = request.getParameter("lname");
-		String num = request.getParameter("num");
-		String reg = request.getParameter("reg");
-		String year = request.getParameter("year");
-		String make = request.getParameter("make");
-		String cost = request.getParameter("cost");
+		String custID = request.getParameter("custID");
+		
+		System.out.println(carID + " " + sDate + " " + eDate + " " + custID);
 		
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/post");
-		String input = sDate + " " + eDate + " " + customerID + " " + fName + " " + sName + " " + num + " "+ carID + " " + reg + " " + year + " " + make + " " + cost;
-		webResource.type("application/json").post(ClientResponse.class, input);
+		String input = carID + " " + sDate + " " + eDate + " " + custID;
+		//webResource.type("application/json").post(ClientResponse.class, input);
 		
 		response.sendRedirect("/Web-Client/Bookings");
 	}

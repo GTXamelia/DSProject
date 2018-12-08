@@ -10,23 +10,20 @@
 	</head>
 
 	<body>
-        <form action="BookingsEdit" method="post">
-        	Car: <select id="selectedRecord" name="selectedRecord">
+        <form action="BookingsAdd" method="post">
+        	Car: <select id="selectedRecord" name="carID">
 	            <c:forEach items="${bookings}" var="booking" varStatus="status">
-	            	<option value="${booking.carID}">${booking.make} $${booking.cost}</option>
+	            	<option value="${booking.carID} ${booking.make} ${booking.reg} ${booking.year} ${booking.cost}">${booking.make} $${booking.cost}</option>
 	            </c:forEach>
         	</select><br>
         	<input type=hidden id="thisField" name="customerID">
         	Date: <input type="date" name="sdate"> - <input type="date" name="edate"><br>
-			First name: <input type="text" name="fname"><br>
-			Last name: <input type="text" name="lname"><br>
-			Phone Number: <input type="number" name="num"><br>
-			Registration: <input type="text" name="reg"><br>
-			Year: <input type="number" name="year"><br>
-			Make: <input type="text" name="make"><br>
-			Cost: <input type="text" name="cost"><br>
+        	Customer: <select id="selectedRecord" name="custID">
+	            <c:forEach items="${bookings}" var="booking" varStatus="status">
+	            	<option value="${booking.customerID} ${booking.first} ${booking.second} ${booking.number}">${booking.first} ${booking.second} ${booking.number}</option>
+	            </c:forEach>
+        	</select><br>
 			<input type="submit" value="Submit">
 		</form>
-	
 	</body>
 </html>
