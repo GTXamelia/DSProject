@@ -54,13 +54,11 @@ public class CarResource {
     	
     	String[] splited = input.split("\\s+");
     	
-    	System.out.println(splited[0] + " " + splited[1]);
-    	
     	DatabaseOption db = (DatabaseOption)Naming.lookup( "rmi://" + address + service);
     	
     	db.Connect();
     	
-    	db.Update("INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('" + splited[0] + "', '" + splited[1] + "', '" + splited[2] + "', '" + splited[3] + "')");
+    	db.Create("INSERT INTO CARS (REG, YEAR, MAKE, COST) VALUES ('" + splited[0] + "', '" + splited[1] + "', '" + splited[2] + "', '" + splited[3] + "')");
     	
     	db.Close();
 	}
