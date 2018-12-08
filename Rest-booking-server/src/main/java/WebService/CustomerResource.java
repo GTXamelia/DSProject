@@ -50,13 +50,11 @@ public class CustomerResource {
     @POST
 	@Path("/post")
 	@Consumes("application/json")
-    public Response postCustomer(@PathParam(value = "id") int id) throws RemoteException, MalformedURLException, NotBoundException, ClassNotFoundException, SQLException {
+    public void postCustomer(String test) throws MalformedURLException, RemoteException, NotBoundException, ClassNotFoundException, SQLException {
 
-		String result = "Customer: " + id;
+		String result = "Customer: " + test;
 		
 		System.out.println(result);
-		
-		return Response.status(201).build();
 	}
     
     @GET

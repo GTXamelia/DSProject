@@ -16,6 +16,9 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 
+import ie.gmit.sw.car.Car;
+import ie.gmit.sw.customer.Customer;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -31,17 +34,26 @@ public class BookingAddServlet extends HttpServlet {
 		
 		Client client = Client.create();
 		
-		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/booking/get");
-		
-		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
-		
 		Gson gson=new Gson();
 		
-		Type listType = new TypeToken<ArrayList<Bookings>>(){}.getType();
+		WebResource wrB = client.resource("http://localhost:8080/Rest-Server/webapi/booking/get");
+		WebResource wrCu = client.resource("http://localhost:8080/Rest-Server/webapi/customer/get");
+		WebResource wrCa = client.resource("http://localhost:8080/Rest-Server/webapi/car/get");
 		
-		List<Bookings> bookings = gson.fromJson(r, listType);
+		String rB = wrB.accept(MediaType.APPLICATION_JSON).get(String.class);
+		String rCu = wrCu.accept(MediaType.APPLICATION_JSON).get(String.class);
+		String rCa = wrCa.accept(MediaType.APPLICATION_JSON).get(String.class);
+		
+		Type listTypeB = new TypeToken<ArrayList<Bookings>>(){}.getType();
+		Type listTypeCu = new TypeToken<ArrayList<Car>>(){}.getType();
+		Type listTypeCa = new TypeToken<ArrayList<Customer>>(){}.getType();
+		
+		List<Bookings> bookings = gson.fromJson(rB, listTypeB);
+		List<Customer> customers = gson.fromJson(rCu, listTypeCa);
+		List<Car> cars = gson.fromJson(rCa, listTypeCu);
 
-        request.setAttribute("bookings", bookings);
+		request.setAttribute("customers", customers);
+        request.setAttribute("cars", cars);
 		
         request.getRequestDispatcher("/WEB-INF/BookingsAdd.jsp").forward(request, response);
 	}

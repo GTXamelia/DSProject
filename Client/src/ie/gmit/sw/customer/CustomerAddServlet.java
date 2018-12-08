@@ -40,9 +40,9 @@ public class CustomerAddServlet extends HttpServlet {
 		System.out.println(fname + " " + lname + " " + num);
 		
 		Client client = Client.create();
-		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/update");
+		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/post");
 		String input = fname + " " + lname + " " + num;
-		webResource.type("application/json").put(ClientResponse.class, input);
+		webResource.type("application/json").post(ClientResponse.class, input);
 		
 		response.sendRedirect("/Web-Client/Customers");
 	}

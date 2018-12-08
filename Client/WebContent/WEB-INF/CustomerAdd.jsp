@@ -12,7 +12,7 @@
 	<body>
 	
 
-        <form action="CustomersAdd" method="post">
+        <form action="CustomerAdd" method="post">
 			First name: <input type="text" name="fname"><br>
 			Last name: <input type="text" name="lname"><br>
 			Phone Number: <input type="number" name="num"><br>
