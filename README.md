@@ -10,13 +10,17 @@
 ## Description
 This project contain a Rest server which hosts json data taken from an RMI service that interacts with an SQL database. TThe project also contains a web client which retrieves its data from the rest API and displays that to the user.
 
+## Getting Started
+```
+>jupyter notebook
+```
+
 ## Examples
 ### Adding Data Example:
 [![Adding Dara](https://imgur.com/WB79WMk.png)](https://youtu.be/BiQYRsMpJWI)
 
 ### Deleting Data Example:
 [![Deleting Dara](https://imgur.com/gc2v3fj.png)](https://youtu.be/exTfFLUWLEQ)
-
 
 ## Built With
 
