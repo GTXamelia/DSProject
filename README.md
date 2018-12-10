@@ -23,6 +23,7 @@ This project contain a Rest server which hosts json data taken from an RMI servi
 * [Visual Studio](https://www.visualstudio.com/) - IDE used scripts
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) - Programming laguage used
 * [Tomcat 8.5](https://tomcat.apache.org/download-80.cgi) - Tomcat was used to host the Rest-Server and Web-Client projects
+* [GSON](https://repo1.maven.org/maven2/com/google/code/gson/gson/2.6.2/) - GSON was used to serialize and deserialize Java objects to JSON.
 
 ## License
 
