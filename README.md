@@ -10,6 +10,12 @@
 ## Description
 This project contain a Rest server which hosts json data taken from an RMI service that interacts with an SQL database. TThe project also contains a web client which retrieves its data from the rest API and displays that to the user.
 
+### Rest-Server
+The rest server is responsible for allowing the web client access to the database. It does this by using the RMI server to call function to interact with the database. It gets this data as an object. The object is no use to display on the website, which is why I used [![Gson](https://en.wikipedia.org/wiki/Gson)
+### RMI-Server
+
+### Web-Client
+
 ## Getting Started
 First thing to do is clone the project. To do that create a folder to contain the project and enter this command:
 ```
