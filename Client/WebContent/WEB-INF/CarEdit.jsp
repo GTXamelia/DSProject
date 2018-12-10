@@ -24,5 +24,9 @@
 	    </c:forEach>
 	</table>
 	
+	<a href="/Web-Client">
+		Homepage
+	</a>
+	
 	</body>
 </html>

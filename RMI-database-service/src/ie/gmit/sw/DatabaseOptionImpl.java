@@ -45,7 +45,7 @@ public class DatabaseOptionImpl extends UnicastRemoteObject implements DatabaseO
 		stmt.execute(sql);
 
 		// Output task
-		System.out.println("User Updating...");
+		System.out.println("User Creating...");
 	}
 
 	// Function used for reading customers from database

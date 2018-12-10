@@ -2,20 +2,24 @@ package ie.gmit.sw.car;
 
 import java.io.Serializable;
 
-public class Car implements Serializable{
+public class Car implements Serializable {
 
+	// Serializable Id
 	private static final long serialVersionUID = 1L;
-	
+
+	// Private vars
 	private int id;
 	private String reg;
 	private int Year;
 	private String Make;
 	private Double cost;
-	
-	public Car(){
-		
+
+	// Null Constructor
+	public Car() {
+
 	}
 
+	// Constructor
 	public Car(int id, String reg, int year, String make, Double cost) {
 		this.id = id;
 		this.reg = reg;
@@ -24,6 +28,7 @@ public class Car implements Serializable{
 		this.cost = cost;
 	}
 
+	// Getters and setters
 	public int getId() {
 		return id;
 	}
@@ -64,4 +69,4 @@ public class Car implements Serializable{
 		this.cost = cost;
 	}
 
-} 
+}

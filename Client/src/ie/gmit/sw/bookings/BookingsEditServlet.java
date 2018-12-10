@@ -19,6 +19,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+// Path
 @WebServlet("/BookingsEdit")
 public class BookingsEditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,29 +28,38 @@ public class BookingsEditServlet extends HttpServlet {
         super();
     }
 
+    // Get request function
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("id"));
-		
+		// Create jersey client
 		Client client = Client.create();
 		
+		// Link to api json data
 		WebResource wr = client.resource("http://localhost:8080/Rest-Server/webapi/booking/edit/" + request.getParameter("id"));
 		
+		// Take in data
 		String r = wr.accept(MediaType.APPLICATION_JSON).get(String.class);
 		
+		// Gson used to serialize and deserialize Java objects to JSON
 		Gson gson=new Gson();
 		
+		// Create the data type
 		Type listType = new TypeToken<ArrayList<Bookings>>(){}.getType();
 		
+		// Create object of the data
 		List<Bookings> bookings = gson.fromJson(r, listType);
 
+		// Assign data a variable that can be used in JSP pages
         request.setAttribute("bookings", bookings);
         
+        // Send user to specific JSP file
         request.getRequestDispatcher("/WEB-INF/BookingsEdit.jsp").forward(request, response);
 	}
 	
+	// Post request function
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// Get params sent from jsp page
 		String id = request.getParameter("id");
 		String carID = request.getParameter("carID");
 		String customerID = request.getParameter("customerID");
@@ -62,18 +72,14 @@ public class BookingsEditServlet extends HttpServlet {
 		String year = request.getParameter("year");
 		String make = request.getParameter("make");
 		String cost = request.getParameter("cost");
-				
-		//System.out.println("Booking: " + id + " " + sDate + " " + eDate); // Test
-		//System.out.println("Customer: " + customerID + " " + fName + " " + sName + " " + num); // Test
-		//System.out.println("Car: " + carID + " " + reg + " " + year + " " + make + " " + cost); // Test
 		
+		// Create jersey client
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/update");
 		String input = id + " " + sDate + " " + eDate + " " + customerID + " " + fName + " " + sName + " " + num + " "+ carID + " " + reg + " " + year + " " + make + " " + cost;
-		ClientResponse response1 = webResource.type("application/json").put(ClientResponse.class, input);
+		webResource.type("application/json").put(ClientResponse.class, input);
 		
-		System.out.println(response1); // Server response
-		
+		// Send user to Bookings page
 		response.sendRedirect("/Web-Client/Bookings");
 	}
 	

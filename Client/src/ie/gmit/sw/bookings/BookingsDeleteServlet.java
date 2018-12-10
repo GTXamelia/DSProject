@@ -19,24 +19,28 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+// Path
 @WebServlet("/BookingsDelete")
 public class BookingsDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public BookingsDeleteServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public BookingsDeleteServlet() {
+		super();
+	}
+
+	// Get request function
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// Get the id of the objects to delete
 		String del = request.getParameter("id") + " " + request.getParameter("cusid");
-		
-		System.out.println(del);
-		
+
+		// Create jersey client
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/booking/delete");
 		webResource.type("application/json").delete(ClientResponse.class, del);
-		
+
+		// Send user to Bookings page
 		response.sendRedirect("/Web-Client/Bookings");
-	}	
+	}
 }

@@ -18,6 +18,8 @@
 			Phone Number: <input type="number" name="num"><br>
 			<input type="submit" value="Submit">
 		</form>
-	
-	</body>
+
+	<a href="/Web-Client"> Homepage </a>
+
+</body>
 </html>
