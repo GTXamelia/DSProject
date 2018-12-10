@@ -168,9 +168,6 @@ public class BookingsResource {
 		// Delete the bookings table
 		db.Delete("DELETE FROM BOOKINGS WHERE id='" + splited[0] + "'");
 
-		// Delete the customer table
-		db.Delete("DELETE FROM CUSTOMERS WHERE id='" + splited[1] + "'");
-
 		db.Close();
 	}
 
