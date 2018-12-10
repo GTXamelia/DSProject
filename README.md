@@ -50,6 +50,7 @@ I used [GSON](https://en.wikipedia.org/wiki/Gson): to serialize and deserialize 
 2. [CSS Styling](https://github.com/cian2009/DSProject/blob/master/Client/WebContent/style.css)
 I created a custom css file with custom styling for the project to give user input a bit of flavor.
 
+3. Smart querying: Removing customer will also remove their bookings. Removing a car will also remove a booking as the car will no longer be available.
 
 ## Built With
 
