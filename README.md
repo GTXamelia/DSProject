@@ -12,7 +12,7 @@
 This project contain a Rest server which hosts json data taken from an RMI service that interacts with an SQL database. TThe project also contains a web client which retrieves its data from the rest API and displays that to the user.
 
 ### Rest-Server
-The rest server is responsible for allowing the web client access to the database. It does this by using the RMI server to call function to interact with the database. It gets this data as an object. The object is no use to display on the website, which is why I used [GSON](https://en.wikipedia.org/wiki/Gson). GSON allowed me to 'unpack' the object easily into JSON data to be displayed to the browser.
+The rest server is responsible for allowing the web client access to the database. It does this by using the RMI server to call function to interact with the database. It gets this data as an object. The object is no use to display on the website, which is why I used [GSON](https://en.wikipedia.org/wiki/Gson). [GSON](https://en.wikipedia.org/wiki/Gson) allowed me to 'unpack' the object easily into JSON data to be displayed to the browser.
 
 The rest server is responsible for database related querying. If a user wishes to edit, delete, add or view and material in the database they must go through the rest api.
 
@@ -45,9 +45,9 @@ To run simply:
 
 ## Extras
 1. GSON
-I used GSON to serialize and deserialize Java objects to JSON. This allowed the RMI to send an object which can then be 'unpacked' into JSOn data to be displayed on the rest server api.
+I used [GSON](https://en.wikipedia.org/wiki/Gson): to serialize and deserialize Java objects to JSON. This allowed the RMI to send an object which can then be 'unpacked' into JSOn data to be displayed on the rest server api.
 
-2. CSS Styling
+2. [CSS Styling](https://github.com/cian2009/DSProject/blob/master/Client/WebContent/style.css)
 I created a custom css file with custom styling for the project to give user input a bit of flavor.
 
 
