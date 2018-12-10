@@ -2,8 +2,8 @@
 
 # Table of Contents
 * [Description](#description)
-* [Sections](#sections)
 * [Getting Started](#getting-started)
+* [Examples](#examples)
 * [Built With](#built-with)
 * [License](#license)
 
