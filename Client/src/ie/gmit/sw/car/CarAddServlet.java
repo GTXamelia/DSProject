@@ -19,33 +19,40 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+// Path
 @WebServlet("/CarAdd")
 public class CarAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public CarAddServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/CarAdd.jsp").forward(request, response);
+	public CarAddServlet() {
+		super();
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	// Get request function
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Send user to specific JSP file
+		request.getRequestDispatcher("/WEB-INF/CarAdd.jsp").forward(request, response);
+	}
+
+	// Post request function
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// Get params sent from jsp page
 		String reg = request.getParameter("reg");
 		String year = request.getParameter("year");
 		String make = request.getParameter("make");
 		String cost = request.getParameter("cost");
-		
+
+		// Create jersey client
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/car/post");
 		String input = reg + " " + year + " " + make + " " + cost;
-		ClientResponse response1 = webResource.type("application/json").post(ClientResponse.class, input);
-		
-		System.out.println(response1); // Server response
-		
+		webResource.type("application/json").post(ClientResponse.class, input);
+
+		// Send user to Bookings page
 		response.sendRedirect("/Web-Client/Cars");
 	}
-	
+
 }
