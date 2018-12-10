@@ -21,7 +21,7 @@
 				<input type=hidden id="thisField" name="id" value="${customer.id}">
 				<label>First name:</label><input type="text" name="fname"value="${customer.first}"><br> 
 				<label>Last name:</label><input type="text" name="lname" value="${customer.second}"><br>
-				<label>Phone Number:</label>>br><input type="number" name="num" value="${customer.number}"><br> <input type="submit" value="Submit">
+				<label>Phone Number:</label><br><input type="number" name="num" value="${customer.number}"><br> <input type="submit" value="Submit">
 			</form>
 		</c:forEach>
 

@@ -30,7 +30,7 @@
 				<tr>
 					<td>${booking.id}</td>
 					<td>${booking.dateStart} to ${booking.dateEnd}</td>
-					<td>${booking.first}${booking.second}</td>
+					<td>${booking.first} ${booking.second}</td>
 					<td>${booking.number}</td>
 					<td>${booking.reg}</td>
 					<td>${booking.year}</td>
