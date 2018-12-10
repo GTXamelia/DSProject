@@ -11,8 +11,9 @@
 This project contain a Rest server which hosts json data taken from an RMI service that interacts with an SQL database. TThe project also contains a web client which retrieves its data from the rest API and displays that to the user.
 
 ## Getting Started
+First thing to do is clone the project. To do that create a folder to contain the project and enter this command:
 ```
->jupyter notebook
+> git clone https://github.com/cian2009/DSProject
 ```
 
 ## Examples
