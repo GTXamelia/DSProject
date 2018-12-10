@@ -19,32 +19,40 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+// Path
 @WebServlet("/CustomerAdd")
 public class CustomerAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-    public CustomerAddServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/CustomerAdd.jsp").forward(request, response);
+	public CustomerAddServlet() {
+		super();
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	// Get request function
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		
+		// Send user to specific JSP file
+		request.getRequestDispatcher("/WEB-INF/CustomerAdd.jsp").forward(request, response);
+	}
+
+	// Post request function
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// Get params sent from jsp page
 		String fname = request.getParameter("fname");
 		String lname = request.getParameter("lname");
 		String num = request.getParameter("num");
-		
-		System.out.println(fname + " " + lname + " " + num);
-		
+
+		// Create jersey client
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/post");
 		String input = fname + " " + lname + " " + num;
 		webResource.type("application/json").post(ClientResponse.class, input);
-		
+
+		// Send user to Bookings page
 		response.sendRedirect("/Web-Client/Customers");
 	}
-	
+
 }

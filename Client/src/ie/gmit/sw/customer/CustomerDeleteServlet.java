@@ -19,6 +19,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+// Path
 @WebServlet("/CustomersDelete")
 public class CustomerDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -27,16 +28,15 @@ public class CustomerDeleteServlet extends HttpServlet {
         super();
     }
 
+    // Get request function
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("id"));
-		
+		// Create jersey client
 		Client client = Client.create();
 		WebResource webResource = client.resource("http://localhost:8080/Rest-Server/webapi/customer/delete");
-		ClientResponse response1 = webResource.type("application/json").delete(ClientResponse.class, request.getParameter("id"));
+		webResource.type("application/json").delete(ClientResponse.class, request.getParameter("id"));
 		
-		System.out.println(response1); // Server response
-		
+		// Send user to customers page
 		response.sendRedirect("/Web-Client/Customers");
 	}	
 }
